@@ -1,0 +1,8 @@
+all:
+  hosts:
+    debian_vm-01:
+      ansible_host: your.debian.vm.01.ip
+      ansible_user: debian
+    debian_vm-02:
+      ansible_host: your.debian.vm.02.ip
+      ansible_user: debian

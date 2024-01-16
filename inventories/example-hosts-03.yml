@@ -1,0 +1,19 @@
+all:
+  hosts:
+    debian_vm-01:
+      ansible_host: 192.168.140.XX
+      ansible_user: debian
+    debian_vm-02:
+      ansible_host: 192.168.140.XX
+      ansible_user: debian
+  children:
+    webservers:
+      hosts:
+        debian_vm-01:
+        debian_vm-02:
+    staging:
+      hosts:
+        debian_vm-01:
+    prod:
+      hosts:
+        debian_vm-02:

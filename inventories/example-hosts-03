@@ -1,0 +1,12 @@
+debian_vm-01 ansible_host=192.168.140.XX ansible_user=debian"
+debian_vm-02 ansible_host=192.168.140.xx ansible_user=debian"
+
+[webservers]
+debian_vm-01
+debian_vm-02
+
+[staging]
+debian_vm-01
+
+[prod]
+debian_vm-02

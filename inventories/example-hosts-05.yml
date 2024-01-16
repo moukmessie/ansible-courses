@@ -1,0 +1,16 @@
+all:
+  children:
+    webservers:
+      hosts:
+        debian_vm-01:
+        debian_vm-02:
+    staging:
+      hosts:
+        debian_vm-01:
+      vars:
+        myCustomGroupVariable: groupValue1
+    prod:
+      hosts:
+        debian_vm-02:
+      vars:
+        myCustomGroupVariable: groupValue2
