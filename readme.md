@@ -1,7 +1,6 @@
 #### 1. Connect to your OpenStack
 ----
 
-https://iutdoua-os.univ-lyon1.fr/
 
 You can follow instructions on the [pdf file](Openstack%20Horizon%20interface%20web%20cliente.pdf) and below
 
@@ -40,7 +39,7 @@ Online documentation:
 Try to add this code block:
 
 ```ssh
-Host 192.168.140.*
+Host 192.168.*.*
   Port 22
   User debian
   IdentityFile /home/nickname/.ssh/makey.pem
@@ -83,7 +82,7 @@ cat /home/debian/.ssh/id_rsa.pub
 
 - Use git clone command to get this repo
 
-    ```git clone git@forge.univ-lyon1.fr:iut-lyon-lp-devops-ansible/part-1.git```
+    ```git clone git@******/part-1.git```
 
 - Remove git: Delete .git folder
 
