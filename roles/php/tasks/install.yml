@@ -1,0 +1,9 @@
+---
+# tasks file for roles/php
+- name: Ensure PHP is install
+  ansible.builtin.apt:
+    name: "{{ php_version }}"
+
+- name: Install extra modules
+  ansible.builtin.apt:
+    name: "{{ php_extra_modules }}"

@@ -1,0 +1,11 @@
+---
+php_version:
+  - php7.4
+  - php7.4-fpm
+php_extra_modules:
+  - "{{ php_version|first }}-bcmath"
+  - "{{ php_version|first }}-mysql"
+  - "{{ php_version|first }}-xml"
+  - "{{ php_version|first }}-memcache"
+php_max_execution_time: 120
+php_memory_limit: 512M

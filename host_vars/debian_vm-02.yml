@@ -1,0 +1,3 @@
+hostname: "{{ workshop }}.{{ env }}.lppro"
+mariadb_username: myUsername
+mariadb_password: myFantasticStagingPassword

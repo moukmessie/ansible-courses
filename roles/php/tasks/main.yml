@@ -1,0 +1,4 @@
+---
+# tasks file for roles/php
+- ansible.builtin.import_tasks: install.yml
+- ansible.builtin.include_tasks: config.yml

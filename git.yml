@@ -1,0 +1,17 @@
+- hosts: app
+  vars:
+    git_repo: https://github.com/WordPress/WordPress.git
+    git_project_name: wordpress
+    git_dest: ~/ansible/{{ git_project_name }}
+  tasks:
+  - name: Installing git
+    ansible.builtin.apt:
+      name: git
+      state: present
+
+  - name: "Clone git repository - {{ git_project_name }}"
+    ansible.builtin.git:
+      repo: "{{ git_repo }}"
+      dest: "{{ git_dest }}"
+      accept_hostkey: yes
+    become: no
