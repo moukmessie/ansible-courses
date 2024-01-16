@@ -1,0 +1,6 @@
+- name: Copy Nginx configuration file
+  copy:
+    src: status.conf
+    dest: /etc/nginx/conf.d/status.conf
+  notify:
+      - do nginx restart

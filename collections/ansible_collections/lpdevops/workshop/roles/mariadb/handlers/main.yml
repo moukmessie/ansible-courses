@@ -1,0 +1,7 @@
+---
+# handlers file for roles/mariadb
+- name: "Ensure mariaDB service has been restarted"
+  ansible.builtin.service:
+    name: mariadb
+    state: started
+  listen: mariadbServiceRestarted

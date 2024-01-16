@@ -1,0 +1,69 @@
+---
+- name: Install Web Server
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Update apt
+      apt:
+        update_cache: yes
+
+    - name: Ensure nginx is install
+      apt:
+        name: nginx
+
+    - name: Ensure nginx service is started
+      service:
+        name: nginx
+        state: started
+
+
+- name: Install DB Server
+  hosts: db
+  become: yes
+
+  tasks:
+    - name: Update apt
+      apt:
+        update_cache: yes
+
+    - name: Ensure mysql is install
+      apt:
+        name: mysql-server
+
+    - name: Ensure mysql service is started
+      service:
+        name: mysql
+        state: started
+
+- name: Install App Server
+  hosts: app
+  become: yes
+
+  tasks:
+    - name: Update apt
+      apt:
+        update_cache: yes
+
+    - name: Ensure Packages required is install
+      # for debian
+      apt:
+        name: "{{ packages }}"
+      when: ansible_distribution == 'Debian'
+
+    - name: Ensure PHP is install
+      apt:
+        name: php
+
+    - name: Ensure PHP extensions Package is install
+      apt:
+        name: "{{ php_packages }}"
+
+    - name: Ensure PHP service is started
+      service:
+        name: php7.0-fpm
+        state: started
+
+    - name: Ensure GIT is install
+      apt:
+        name: git

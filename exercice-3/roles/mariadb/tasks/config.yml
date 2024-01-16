@@ -1,0 +1,8 @@
+---
+# tasks file for roles/php
+- name: Configure MariaDB
+  ansible.builtin.template:
+    src: custom.cnf.j2
+    dest: /etc/mysql/conf.d/custom.cnf
+  notify:
+    - mariadbServiceRestarted

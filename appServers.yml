@@ -1,0 +1,31 @@
+---
+- name: Install App Server
+  hosts: app
+  become: yes
+
+  tasks:
+    - include_tasks: commonTasks.yml
+
+    - name: Ensure Packages required is install
+      # for debian
+      apt:
+        name: "{{ packages }}"
+      when: ansible_distribution == 'Debian'
+
+    - name: Ensure PHP is install
+      apt:
+        name: php
+
+    - name: Ensure PHP extensions Package is install
+      apt:
+        name: "{{ php_packages }}"
+      notify: serviceStarted
+
+    - name: Ensure GIT is install
+      apt:
+        name: git
+
+  handlers:
+    - import_tasks: serviceStartedHandler.yml
+      vars:
+        service: php7.0-fpm

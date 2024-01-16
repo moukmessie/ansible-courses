@@ -1,0 +1,18 @@
+---
+# tasks file for roles/mariadb
+- name: Ensure MariaDB is install
+  ansible.builtin.apt:
+    name: mariadb-server
+    # Present
+    install_recommends: false
+    update_cache: true
+    cache_valid_time: 3600
+    # Absent
+    purge: true
+    autoremove: true
+
+- name: Ensure MariaDB is enabled and running
+  ansible.builtin.service:
+    name: mariadb
+    enabled: true
+    state: started

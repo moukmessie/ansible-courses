@@ -1,0 +1,27 @@
+- name: Installing packages
+  ansible.builtin.apt:
+    name: "{{ php_version }}"
+    # Present
+    install_recommends: false
+    update_cache: true
+    cache_valid_time: 3600
+    # Absent
+    purge: true
+    autoremove: true
+
+- name: Installing extra modules
+  ansible.builtin.apt:
+    name: "{{ php_extra_modules }}"
+    # Present
+    install_recommends: false
+    update_cache: true
+    cache_valid_time: 3600
+    # Absent
+    purge: true
+    autoremove: true
+
+- name: Ensure PHP is enabled and running
+  ansible.builtin.service:
+    name: php7.4-fpm
+    enabled: true
+    state: started

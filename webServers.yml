@@ -1,0 +1,17 @@
+---
+- name: Install Web Server
+  hosts: web
+  become: yes
+
+  tasks:
+    - import_tasks: commonTasks.yml
+
+    - name: Ensure nginx is install
+      apt:
+        name: nginx
+      notify: serviceStarted
+    
+  handlers:
+    - import_tasks: serviceStartedHandler.yml
+      vars:
+        service: nginx

@@ -1,0 +1,3 @@
+---
+# defaults file for roles/mariadb
+bind_address: 127.0.0.1

@@ -1,0 +1,6 @@
+---
+# tasks file for mariadb
+- name: Ensure mariadb is install
+  ansible.builtin.apt:
+    name: mariadb-server
+  notify: mariadbServiceStarted

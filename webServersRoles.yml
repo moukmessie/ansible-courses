@@ -1,0 +1,10 @@
+---
+- name: Install Web Server
+  hosts: web
+  become: yes
+
+  pre_tasks:
+    - ansible.builtin.import_tasks: commonTasks.yml
+
+  roles:
+    - nginx

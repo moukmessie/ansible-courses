@@ -1,0 +1,5 @@
+- name: "Ensure {{service}} service is started"
+  service:
+    name: "{{service}}"
+    state: started
+  listen: serviceStarted

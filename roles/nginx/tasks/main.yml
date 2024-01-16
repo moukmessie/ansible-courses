@@ -1,0 +1,6 @@
+---
+# tasks file for nginx
+- name: Ensure nginx is install
+  ansible.builtin.apt:
+    name: nginx
+  notify: nginxServiceStarted

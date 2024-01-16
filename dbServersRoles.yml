@@ -1,0 +1,10 @@
+---
+- name: Install DB Server
+  hosts: db
+  become: yes
+
+  pre_tasks:
+    - import_tasks: commonTasks.yml
+  
+  roles:
+    - mysql

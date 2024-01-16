@@ -1,0 +1,12 @@
+---
+- name: Install DB Server
+  hosts: db
+  become: yes
+
+  tasks:
+    - import_tasks: commonTasks.yml
+
+    - name: Ensure mysql is install
+      apt:
+        name: mysql-server
+      notify: mysqlServiceStarted

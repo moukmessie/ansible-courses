@@ -1,0 +1,20 @@
+---
+- name: Install App Server
+  hosts: app
+  become: yes
+
+  pre_tasks:
+    - ansible.builtin.include_tasks: commonTasks.yml
+
+  roles:
+    - php
+
+  tasks:
+    - name: Ensure GIT is install
+      ansible.builtin.apt:
+        name: git
+
+    - name: Installing index file (index.html)
+      ansible.builtin.template:
+        src: nginx/index.j2
+        dest: /var/www/html/index.html

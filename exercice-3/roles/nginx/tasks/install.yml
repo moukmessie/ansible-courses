@@ -1,0 +1,18 @@
+---
+# tasks file for roles/nginx
+- name: Ensure Nginx is install
+  ansible.builtin.apt:
+    name: nginx
+    # Present
+    install_recommends: false
+    update_cache: true
+    cache_valid_time: 3600
+    # Absent
+    purge: true
+    autoremove: true
+
+- name: Ensure Nginx is enabled and running
+  ansible.builtin.service:
+    name: nginx
+    enabled: true
+    state: started

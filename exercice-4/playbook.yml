@@ -1,0 +1,15 @@
+---
+- hosts: all
+
+  tasks:
+    - import_role:
+        name: labdevops.workshop.php
+    - import_role:
+        name: labdevops.workshop.nginx
+    - import_role:
+        name: labdevops.workshop.mariadb
+
+    - name: Deploy default index file
+      ansible.builtin.template:
+        src: nginx/index.j2
+        dest: /var/www/html/index.html

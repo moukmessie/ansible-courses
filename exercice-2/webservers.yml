@@ -1,0 +1,13 @@
+- name: Installing Nginx server
+  hosts: web
+  tasks:
+    - name: Ensure Nginx service is started
+      ansible.builtin.service:
+        name: nginx
+        state: started
+    - name: Copy Nginx configuration file
+      ansible.builtin.copy:
+        src: nginx/status.conf
+        dest: /etc/nginx/conf.d/status.conf
+      notify:
+          - restart_nginx

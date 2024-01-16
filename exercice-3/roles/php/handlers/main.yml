@@ -1,0 +1,7 @@
+---
+# handlers file for roles/php
+- name: restart_php-fpm
+  ansible.builtin.service:
+    name: php7.4-fpm
+    state: restarted
+

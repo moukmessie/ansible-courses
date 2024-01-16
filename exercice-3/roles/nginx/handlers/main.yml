@@ -1,0 +1,7 @@
+---
+# handlers file for roles/nginx
+- name: "Ensure Nginx service has been restarted"
+  ansible.builtin.service:
+    name: nginx
+    state: started
+  listen: do nginx restart

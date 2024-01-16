@@ -1,0 +1,14 @@
+<html lang="fr-fr">
+<head>
+	<meta charset="utf-8">
+	<title>Serveur de {{ 'production' if env == 'prod' else 'développement' }}</title>
+</head>
+<body>
+<h1>
+{% if env == "production" %}
+	Serveur de production, à manipuler avec précautions !
+{% else %}
+	Serveur de développement, autorisation de le malmener !
+{% endif %}
+</h1>
+</body>

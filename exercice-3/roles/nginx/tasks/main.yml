@@ -1,0 +1,4 @@
+---
+# tasks file for roles/nginx
+- ansible.builtin.import_tasks: install.yml
+- ansible.builtin.include_tasks: config.yml
